@@ -9,7 +9,7 @@
 ---
 ## Models
 
-* [x] CNN + LSTM RGB
+* [x] CNN + LSTM RGB (%89 accuracy)
 
 * [ ] CNN + LSTM opticalflow
 
