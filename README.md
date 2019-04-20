@@ -3,18 +3,20 @@
 
 ## Dynamic hand gestures dataset
 
-[Dataset](https://20bn.com/datasets/jester/)
+[Link](https://20bn.com/datasets/jester/)
 
 
 ---
-[x] convolution + LSTM RGB
+## Models
 
-[] convolution + LSTM opticalflow
+* [x] CNN + LSTM RGB
 
-[] merged model RGB + FLOW
+* [ ] CNN + LSTM opticalflow
+
+* [ ] merged model RGB + FLOW
 
 ---
-## Convolution + LSTM RGB
+## CNN + LSTM RGB
 [paper](https://arxiv.org/abs/1411.4389)
 
-![alt](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIte7jdcYa_DOkEm7ZzaSv6R_25UQzQoeSoQBjmL_7l-2u2Nenbw)
+![alt](https://www.researchgate.net/profile/Sergio_Guadarrama/publication/308034527/figure/fig1/AS:537144553938944@1505076649445/We-propose-Long-term-Recurrent-Convolutional-Networks-LRCNs-a-class-of-architectures.png)
