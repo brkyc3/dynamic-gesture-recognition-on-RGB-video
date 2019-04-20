@@ -77,7 +77,7 @@ class ModelFactory:
 
         pred = Dense(27,activation='softmax')(x)
 
-        fullmodel = Model(inputs=[rgbmodel.input,flowmodel.input],outputs=pred ,name='rgb_flow_lstm')
+        fullmodel = Model(inputs=[flowmodel.input,rgbmodel.input],outputs=pred ,name='rgb_flow_lstm')
         #fullmodel.summary()
         return fullmodel
     
