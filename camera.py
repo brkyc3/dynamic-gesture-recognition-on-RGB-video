@@ -81,7 +81,9 @@ from collections import deque
 import numpy as np
 import time
 q = deque([np.zeros(1024) for i in range(10)] )#queue of extracted features , initialy filled with zeros 
-
+def grab_frame(cap):
+    ret,frame = cap.read()
+    return frame
 
 
 import matplotlib.animation as animation
