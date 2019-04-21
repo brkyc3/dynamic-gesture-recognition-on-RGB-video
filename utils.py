@@ -38,9 +38,9 @@ class FlowRgbGenerator(Sequence):
             out = row[1:].values
             
               
-            batch_inputflow += [ inpflow ]
-            batch_inputrgb += [ inprgb ]
-            batch_output += [ out ]
+            batch_inputflow.append(inpflow)
+            batch_inputrgb.append(inprgb)
+            batch_output.append( out )
 
         batch_flowx = np.array(batch_inputflow)
         batch_rgbx = np.array( batch_inputrgb )
@@ -74,8 +74,8 @@ class FlowGenerator(Sequence):
             inpflow = get_middle_part_flow(self.base_path + str(row['videoid']) )
             out = row[1:].values
             
-            batch_inputflow += [ inpflow ]
-            batch_output += [ out ]
+            batch_inputflow.append(inpflow)
+            batch_output.append(out)
 
         batch_flowx = np.array(batch_inputflow)
         batch_y = np.array( batch_output )
@@ -110,8 +110,8 @@ class RgbGenerator(Sequence):
             out = row[1:].values
             
               
-            batch_inputrgb += [ inprgb ]
-            batch_output += [ out ]
+            batch_inputrgb.append(inprgb)
+            batch_output.append(out)
 
         batch_rgbx = np.array( batch_input )
         batch_y = np.array( batch_output )
@@ -151,8 +151,8 @@ def get_middle_part_flow(input_path ):
   
     middle = int(len(flows)/2)
     ims = []
-    for ind in range(middle-5,middle+5):
-        ims+=[read_flow(flows[ind])]
+    for ind in np.linspace(8,len(flows)-5,10,dtype=int):
+        ims.append(read_flow(flows[ind]))
     data=np.array(ims)
     #print('data shape ' ,data.shape)
     return data
@@ -163,14 +163,11 @@ def get_middle_part_flow(input_path ):
 
 def get_middle_part_rgb(input_path ):
     images = sorted(glob.glob(input_path+'/*.jpg'))
-  
-    middle = int(len(images)/2)
+
     ims = []
-    mx =24
-    if len(images)<24:
-        mx=len(images)
-    for ind in range(mx-20,mx,2):
-        ims+=[cv2.resize(cv2.imread(images[ind]),(100,150))]
+
+    for ind in np.linspace(8,len(images)-5,10,dtype=int):
+        ims.append(cv2.resize(cv2.imread(images[ind]),(100,150)))
     #data = np.concatenate(ims,axis=2) #merge multiple frames
     data=np.array(ims)
     data = data/255.

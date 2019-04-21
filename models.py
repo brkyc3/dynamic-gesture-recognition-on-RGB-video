@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
 
 
 from keras.models import Model,load_model
@@ -11,16 +10,12 @@ from keras.optimizers import Adam
 from keras.layers.advanced_activations import LeakyReLU
 
 
-# In[13]:
-
 
 class ModelType:
     RGB = 0
     FLOW = 1
     FULL = 2
 
-
-# In[24]:
 
 
 class ModelFactory:
