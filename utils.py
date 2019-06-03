@@ -8,7 +8,7 @@ from keras.utils import Sequence
 import cv2
 import glob,cv2
 from keras.callbacks import Callback
-
+import numpy as np
 
 # In[5]:
 
@@ -113,7 +113,7 @@ class RgbGenerator(Sequence):
             batch_inputrgb.append(inprgb)
             batch_output.append(out)
 
-        batch_rgbx = np.array( batch_input )
+        batch_rgbx = np.array( batch_inputrgb )
         batch_y = np.array( batch_output )
           
 
